@@ -8,20 +8,29 @@ import {
    CircularProgress,
    Divider,
    Button,
+   CssBaseline,
 } from '@material-ui/core';
 import useStyles from './styles';
 import AddressForm from '../AddressForm';
 import PaymentForm from '../PaymentForm';
 import { commerce } from '../../../lib/commerce';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const steps = ['Shipping address', 'Payment details'];
 
-const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
+const Checkout = ({ cart, order, handleCaptureCheckout, error }) => {
    const [activeStep, setActiveStep] = useState(0);
    const [checkoutToken, setCheckoutToken] = useState(null);
    const [shippingData, setShippingData] = useState({});
+   const [isFinished, setIsFinished] = useState(false);
    const classes = useStyles();
+   const history = useHistory();
+
+   const timeout = () => {
+      setTimeout(() => {
+         setIsFinished(true);
+      }, 3000);
+   };
 
    let Confirmation = () =>
       order.customer ? (
@@ -35,6 +44,17 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
                <Typography variant="subtitle2">
                   Order ref: {order.customer.reference}
                </Typography>
+            </div>
+            <br />
+            <Button component={Link} to="/" variant="outlined" type="button">
+               Back to Home
+            </Button>
+         </>
+      ) : isFinished ? (
+         <>
+            <div>
+               <Typography variant="h5">Thank you for your purchase</Typography>
+               <Divider className={classes.divider} />
             </div>
             <br />
             <Button component={Link} to="/" variant="outlined" type="button">
@@ -62,7 +82,8 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
             checkoutToken={checkoutToken}
             backStep={backStep}
             nextStep={nextStep}
-            onCaptureCheckout={onCaptureCheckout}
+            handleCaptureCheckout={handleCaptureCheckout}
+            timeout={timeout}
          />
       );
 
@@ -75,7 +96,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
             setCheckoutToken(token);
          } catch (error) {
-            console.log(error);
+            history.pushState('/');
          }
       };
 
@@ -87,12 +108,12 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
    const next = (data) => {
       setShippingData(data);
-      console.log(data);
       nextStep();
    };
 
    return (
       <>
+         <CssBaseline />
          <div className={classes.toolbar} />
          <main className={classes.layout}>
             <Paper className={classes.paper}>

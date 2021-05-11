@@ -90,7 +90,7 @@ const App = () => {
                   <Checkout
                      cart={cart}
                      order={order}
-                     onCaptureCheckout={handleCaptureCheckout}
+                     handleCaptureCheckout={handleCaptureCheckout}
                      error={errorMessage}
                   />
                </Route>
