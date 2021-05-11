@@ -1,0 +1,9 @@
+{
+   "emmet.excludeLanguages": ["markdown"],
+   "emmet.triggerExpansionOnTab": true,
+   "emmet.showSuggestionsAsSnippets": true,
+   "editor.snippetSuggestions": "top",
+   "emmet.includeLanguages": {
+      "javascript": "javascriptreact"
+   }
+}
