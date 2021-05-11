@@ -70,11 +70,6 @@ const AddressForm = ({ checkoutToken, next }) => {
 
    useEffect(() => {
       fetchShippingCountries(checkoutToken.id);
-      console.log(
-         commerce.services
-            .localeListShippingCountries(checkoutToken.id)
-            .then((e) => console.log(e))
-      );
    }, []);
 
    useEffect(() => {

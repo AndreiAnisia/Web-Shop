@@ -16,7 +16,7 @@ const PaymentForm = ({
    nextStep,
    backStep,
    shippingData,
-   handleCaptureCheckout,
+   onCaptureCheckout,
    timeout,
 }) => {
    const handleSubmit = async (event, elements, stripe) => {
@@ -58,10 +58,8 @@ const PaymentForm = ({
             },
          };
 
-         handleCaptureCheckout(checkoutToken.id, orderData);
-
+         onCaptureCheckout(checkoutToken.id, orderData);
          timeout();
-
          nextStep();
       }
    };
@@ -94,7 +92,7 @@ const PaymentForm = ({
                            disabled={!stripe}
                            color="primary"
                         >
-                           Pay{' '}
+                           Pay
                            {checkoutToken.live.subtotal.formatted_with_symbol}
                         </Button>
                      </div>
