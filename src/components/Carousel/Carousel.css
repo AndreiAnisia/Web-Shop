@@ -26,6 +26,7 @@
    .carousel-img {
       max-width: 350px;
       height: auto;
+      margin-top: 10px;
    }
    .carousel-caption {
       padding-left: 15px;
