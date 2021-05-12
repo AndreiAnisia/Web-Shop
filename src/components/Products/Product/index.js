@@ -29,31 +29,33 @@ const Product = ({ product, onAddToCart }) => {
             image={product.media.source}
             title={product.name}
          />
-         <CardContent>
-            <div className={classes.cardContent}>
-               <Typography variant="h6" gutterBottom>
-                  {product.name}
+         <div className={classes.color}>
+            <CardContent>
+               <div className={classes.cardContent}>
+                  <Typography variant="h6" gutterBottom>
+                     {product.name}
+                  </Typography>
+                  <Typography variant="h5">
+                     {product.price.formatted_with_symbol}
+                  </Typography>
+               </div>
+               <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  className={classes.description}
+               >
+                  {maxLength(product.description.slice(3, -4))}
                </Typography>
-               <Typography variant="h5">
-                  {product.price.formatted_with_symbol}
-               </Typography>
-            </div>
-            <Typography
-               variant="body2"
-               color="textSecondary"
-               className={classes.description}
-            >
-               {maxLength(product.description.slice(3, -4))}
-            </Typography>
-         </CardContent>
-         <CardActions disableSpacing className={classes.cardActions}>
-            <IconButton
-               aria-label="Add to Cart"
-               onClick={() => onAddToCart(product.id, 1)}
-            >
-               <AddShoppingCart />
-            </IconButton>
-         </CardActions>
+            </CardContent>
+            <CardActions disableSpacing className={classes.cardActions}>
+               <IconButton
+                  aria-label="Add to Cart"
+                  onClick={() => onAddToCart(product.id, 1)}
+               >
+                  <AddShoppingCart />
+               </IconButton>
+            </CardActions>
+         </div>
       </Card>
    );
 };
