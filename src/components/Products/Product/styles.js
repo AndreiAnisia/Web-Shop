@@ -13,6 +13,7 @@ export default makeStyles(() => ({
       width: '100%',
       paddingTop: '56.25%', // 16:9
       backgroundSize: 'contain',
+      marginTop: '10px',
    },
    cardActions: {
       display: 'flex',

@@ -6,6 +6,9 @@ import Navbar from './components/Navbar/Navbar';
 import Cart from './components/Cart/Cart';
 import './App.css';
 import Checkout from './components/CheckoutForm/Checkout/Checkout';
+import CarouselContainer from './components/Carousel/Carousel';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
    const [products, setProducts] = useState([]);
@@ -75,7 +78,9 @@ const App = () => {
             <Navbar totalItems={cart.total_items} />
             <Switch>
                <Route exact path="/">
+                  <CarouselContainer products={products} />
                   <Products products={products} onAddToCart={handleAddToCart} />
+                  <Footer />
                </Route>
                <Route exact path="/cart">
                   <Cart

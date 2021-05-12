@@ -17,6 +17,7 @@ export default makeStyles((theme) => ({
    },
    checkoutButton: {
       minWidth: '150px',
+      color: 'white !important',
    },
    link: {
       textDecoration: 'none',

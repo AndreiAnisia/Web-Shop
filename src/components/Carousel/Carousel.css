@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+.carousel-img {
+   margin: auto;
+   margin-top: 1%;
+}
+
+.carousel-caption {
+   color: black !important;
+   /* padding-bottom: 0 !important; */
+   position: static !important;
+   font-family: 'Source Sans Pro', sans-serif !important;
+}
+
+.carousel-control-prev-icon {
+   background-image: url('../../assets/left-arrow\ 2.png') !important;
+}
+.carousel-control-next-icon {
+   background-image: url('../../assets/right-arrow.png') !important;
+}
+
+.carousel-indicators {
+   display: none !important;
+}

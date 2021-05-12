@@ -1,0 +1,21 @@
+.footer {
+   position: relative;
+   bottom: 0;
+   height: 50px;
+   width: 100%;
+   background-image: linear-gradient(to right, #ec77ab 0%, #7873f5 100%);
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.footer-copyright {
+   margin: 0;
+   font-size: 14px;
+   color: white;
+}
+
+.copyright-sign {
+   color: lightgray;
+}

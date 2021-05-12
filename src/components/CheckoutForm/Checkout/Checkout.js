@@ -96,7 +96,7 @@ const Checkout = ({ cart, order, handleCaptureCheckout, error }) => {
 
             setCheckoutToken(token);
          } catch (error) {
-            // history.pushState('/');
+            history.pushState('/');
          }
       };
 
