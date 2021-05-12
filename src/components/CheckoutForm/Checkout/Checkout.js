@@ -18,7 +18,13 @@ import { Link, useHistory } from 'react-router-dom';
 
 const steps = ['Shipping address', 'Payment details'];
 
-const Checkout = ({ cart, order, handleCaptureCheckout, error }) => {
+const Checkout = ({
+   cart,
+   order,
+   handleCaptureCheckout,
+   error,
+   refreshCart,
+}) => {
    const [activeStep, setActiveStep] = useState(0);
    const [checkoutToken, setCheckoutToken] = useState(null);
    const [shippingData, setShippingData] = useState({});
@@ -29,6 +35,7 @@ const Checkout = ({ cart, order, handleCaptureCheckout, error }) => {
    const timeout = () => {
       setTimeout(() => {
          setIsFinished(true);
+         refreshCart();
       }, 3000);
    };
 
@@ -96,7 +103,7 @@ const Checkout = ({ cart, order, handleCaptureCheckout, error }) => {
 
             setCheckoutToken(token);
          } catch (error) {
-            history.pushState('/');
+            // history.push('/');
          }
       };
 

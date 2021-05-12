@@ -6,7 +6,6 @@ import './Carousel.css';
 const CarouselContainer = ({ products }) => {
    const classes = useStyles();
 
-   console.log(products);
    return (
       <div>
          <div className={classes.toolbar} />

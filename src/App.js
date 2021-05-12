@@ -96,6 +96,7 @@ const App = () => {
                      order={order}
                      handleCaptureCheckout={handleCaptureCheckout}
                      error={errorMessage}
+                     refreshCart={refreshCart}
                   />
                </Route>
             </Switch>
